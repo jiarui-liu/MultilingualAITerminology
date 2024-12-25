@@ -1,0 +1,1 @@
+This is the repository for the preprint [Towards Global AI Inclusivity: A Large-Scale Multilingual Terminology Dataset](https://arxiv.org/abs/2412.18367). The data and code will be published soon!
