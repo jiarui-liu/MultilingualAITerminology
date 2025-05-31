@@ -22,6 +22,7 @@ python3 download_dataset.py
 ### Run the Demo
 
 Please refer to [server/README.md](server/README.md) for detailed instructions on setting up and launching the demo.
+If you have any questions about the demo setup, feel free to reach out to Iman!
 
 ## Citation
 
