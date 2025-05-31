@@ -21,7 +21,7 @@ python3 download_dataset.py
 
 ### Run the Demo
 
-Please refer to `server/README.md` for detailed instructions on setting up and launching the demo.
+Please refer to [server/README.md](server/README.md) for detailed instructions on setting up and launching the demo.
 
 ## Citation
 
