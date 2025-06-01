@@ -5,13 +5,21 @@ From the MultilingualAITerminology directory, run
 python3 -m server.run
 ```
 
+The server will run on default on https://localhost:8765.
+
+## Requirements
 You need an OpenAPI API key in your environment (for the prompt refinement 
-translation feature) as follows:
+translation feature):
 ```
 openai_api_key='KEY_HERE'
 ```
 
-In addition, you need the requirements in [/server/requirements.txt](https://github.com/jiarui-liu/MultilingualAITerminology/blob/main/server/requirements.txt) and to install 'wordnet' as follows:
+In addition, you need to install requirements as follows:
+```
+pip install -r server/requirements.txt
+```
+
+And to install 'wordnet' as follows:
 ```
 import nltk
 nltk.download('wordnet')
@@ -22,11 +30,11 @@ Finally, you need to download the dataset that the prompt refinment uses as foll
 python3 download_dataset.py
 ```
 
-The server will run on default on https://localhost:8765.
+## Server Details
 
 There are two main POST requests that can be made on this server:
 
-## Translate
+### Translate
 
 This is to translate a text using Seamless (**the default direct translation method**)
 or the prompt refinement method. <br/>
@@ -61,7 +69,7 @@ const res = await fetch("http://127.0.0.1:8765/translate", {
 });
 ```
 
-## Mark
+### Mark
 
 This is used alongside the website demonstration in order to highlight 
 the differences between the Seamless and prompt refinement translations. The output
