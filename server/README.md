@@ -14,18 +14,18 @@ translation feature):
 openai_api_key='KEY_HERE'
 ```
 
-In addition, you need to install requirements as follows:
+In addition, you can install requirements specific to the server as follows:
 ```
 pip install -r server/requirements.txt
 ```
 
-And to install 'wordnet' as follows:
+And you need to install 'wordnet', which can be done as follows:
 ```
 import nltk
 nltk.download('wordnet')
 ```
 
-Finally, you need to download the dataset that the prompt refinment uses as follows:
+Finally, don't forget to download the dataset that the prompt refinment uses as follows:
 ```
 python3 download_dataset.py
 ```
