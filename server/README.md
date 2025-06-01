@@ -17,6 +17,11 @@ import nltk
 nltk.download('wordnet')
 ```
 
+Finally, you need to download the dataset that the prompt refinment uses as follows:
+```
+python3 download_dataset.py
+```
+
 The server will run on default on https://localhost:8765.
 
 There are two main POST requests that can be made on this server:
