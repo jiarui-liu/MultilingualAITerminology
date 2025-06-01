@@ -9,7 +9,7 @@ from translator.translator import Translator
 
 class TermAwareRefiner:
     def __init__(self, args, term_path):
-        
+    
         self.terms = {}
         for lang in ["Chinese", "Arabic", "French", "Russian", "Japanese"]:
             self.terms[lang] = pd.read_csv(os.path.join(term_path, lang + ".csv")).to_dict(orient='records')
@@ -34,10 +34,10 @@ class TermAwareRefiner:
     
     def format_term_str(self, term_dict):
         return "- " + "- ".join([f"{key}: {val}" for key, val in term_dict.items()])
-
+    
     def refine_translation(self, result, text, src_lang, tgt_lang):
-        from prompt_utils import prompt_refine
-        from gpt_utils import gpt_completion
+        from translator.prompt_utils import prompt_refine
+        from translator.gpt_utils import gpt_completion
         term_lst = self.get_related_term_lst(result, tgt_lang)
         term_str = self.format_term_str(term_lst)
         prompt = prompt_refine.format(

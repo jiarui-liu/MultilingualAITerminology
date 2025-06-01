@@ -1,0 +1,11 @@
+fastapi==0.115.12
+nltk==3.9.1
+openai==1.79.0
+pandas==2.2.3
+protobuf==6.31.1
+Levenshtein==0.27.1
+fuzzywuzzy==0.18.0
+sentencepiece==0.2.0
+torch==2.7.0
+transformers==4.38.1
+uvicorn==0.34.2
