@@ -1,30 +1,29 @@
 # Translation Server (used alongside [ACL Antho Mod](https://github.com/ImanOu123/acl-anthology-mod))
 
-From the multilingual-model-card directory, run 
+From the MultilingualAITerminology directory, run 
 ```
 python3 -m server.run
 ```
 
 You need an OpenAPI API key in your environment (for the prompt refinement 
-translation feature) and the following requirements:
-
+translation feature) as follows:
 ```
-fastapi==0.115.12
-nltk==3.9.1
-openai==1.79.0
-Levenshtein==0.27.1
-fuzzywuzzy==0.18.0
-transformers==4.38.1
-uvicorn==0.34.2
+openai_api_key='KEY_HERE'
 ```
 
-The server will run on https://localhost:8765.
+In addition, you need the requirements in [/server/requirements.txt](https://github.com/jiarui-liu/MultilingualAITerminology/blob/main/server/requirements.txt) and to install 'wordnet' as follows:
+```
+import nltk
+nltk.download('wordnet')
+```
+
+The server will run on default on https://localhost:8765.
 
 There are two main POST requests that can be made on this server:
 
 ## Translate
 
-This is to translate a text using Seamless (the default direct translation method)
+This is to translate a text using Seamless (**the default direct translation method**)
 or the prompt refinement method. <br/>
 
 This POST request takes in the following arguments: 
