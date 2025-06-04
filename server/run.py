@@ -44,7 +44,7 @@ if __name__ == "__main__":
     
     
     # Define the FastAPI app
-    app = FastAPI()
+    app = FastAPI(debug=True)
 
     app.add_middleware(
         CORSMiddleware,
@@ -52,7 +52,7 @@ if __name__ == "__main__":
         allow_methods=["*"],  # Allow all HTTP methods
         allow_headers=["*"],  # Allow all headers
     )
-
+    
     translator = Translator(args)
 
     # API endpoint for translation

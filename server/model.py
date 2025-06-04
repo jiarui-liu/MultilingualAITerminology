@@ -2,7 +2,6 @@ import json
 from nltk import word_tokenize, sent_tokenize
 from dataclasses import dataclass
 from enum import Enum
-from server.acl_antho_translator.prompt_refine import AnthoPromptRefine
 import re
 from nltk.tokenize import sent_tokenize
 
@@ -115,11 +114,10 @@ class Translator:
         
     # used in the server to translate a text directly or using prompt refinement
     def translate(self, text, src_lang, tgt_lang, mode, seamless=""):
-        
+        print("translating...")
         # if the default translation is provided and the mode is set to use prompt refinement
         if seamless != "" and mode == "term_aware":
-            refiner = AnthoPromptRefine("gpt-4o-mini", "./data/")
-            return refiner.translate(text, seamless, src_lang, tgt_lang)
+            return self.refiner.refine_translation(text, seamless, src_lang, tgt_lang)
         else:
             # if the default translation is not provided, translate first
             splitTxt = split_paragraph(text)
@@ -131,6 +129,5 @@ class Translator:
             if mode == "direct":
                 return result.strip()
             elif mode == "term_aware":
-                refiner = AnthoPromptRefine("gpt-4o-mini", "./data/")
-                return refiner.translate(text, result.strip(), src_lang, tgt_lang)
+                return self.refiner.refine_translation(text, result.strip(), src_lang, tgt_lang)
         

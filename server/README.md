@@ -1,30 +1,42 @@
 # Translation Server (used alongside [ACL Antho Mod](https://github.com/ImanOu123/acl-anthology-mod))
 
-From the multilingual-model-card directory, run 
+From the MultilingualAITerminology directory, run 
 ```
 python3 -m server.run
 ```
 
+The server will run on default on https://localhost:8765.
+
+## Requirements
 You need an OpenAPI API key in your environment (for the prompt refinement 
-translation feature) and the following requirements:
-
+translation feature):
 ```
-fastapi==0.115.12
-nltk==3.9.1
-openai==1.79.0
-Levenshtein==0.27.1
-fuzzywuzzy==0.18.0
-transformers==4.38.1
-uvicorn==0.34.2
+openai_api_key='KEY_HERE'
 ```
 
-The server will run on https://localhost:8765.
+In addition, you can install requirements specific to the server as follows:
+```
+pip install -r server/requirements.txt
+```
+
+And you need to install 'wordnet', which can be done as follows:
+```
+import nltk
+nltk.download('wordnet')
+```
+
+Finally, don't forget to download the dataset that the prompt refinment uses as follows:
+```
+python3 download_dataset.py
+```
+
+## Server Details
 
 There are two main POST requests that can be made on this server:
 
-## Translate
+### Translate
 
-This is to translate a text using Seamless (the default direct translation method)
+This is to translate a text using Seamless (**the default direct translation method**)
 or the prompt refinement method. <br/>
 
 This POST request takes in the following arguments: 
@@ -57,7 +69,7 @@ const res = await fetch("http://127.0.0.1:8765/translate", {
 });
 ```
 
-## Mark
+### Mark
 
 This is used alongside the website demonstration in order to highlight 
 the differences between the Seamless and prompt refinement translations. The output
